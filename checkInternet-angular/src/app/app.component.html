@@ -1,0 +1,16 @@
+<div class="center">
+  <h1 class="cen">Internet</h1>
+  <h3 class="cen">{{ fechaHoy }}</h3>
+  <input class="cenint" type="date" id="fecha" name="fecha" (change)="nuevaFecha($event)">
+  <br><br>
+  <table border="2" class="centab">
+    <tr>
+        <th>Hora/Minuto</th>
+        <th *ngFor="let item of [].constructor(24); let i = index">{{i}}</th>
+    </tr>
+    <tr *ngFor="let min of minutos">
+        <td>{{ min }}</td>
+        <td *ngFor="let item of [].constructor(24); let i = index">{{search(i,min)}}</td>
+    </tr>
+  </table>  
+</div>

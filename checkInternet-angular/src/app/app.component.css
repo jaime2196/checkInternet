@@ -1,0 +1,21 @@
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    }
+
+.cen{
+    text-align: center;
+}
+
+.centab {
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .cenint{
+        display: block;
+  margin-right: auto;
+  margin-left: auto;
+    }
+    

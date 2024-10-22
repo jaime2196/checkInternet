@@ -1,0 +1,19 @@
+{
+  "name": "checkinternet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "proyecto": "ng new checkInternet-angular",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "checkinternet": "file:",
+    "express": "^4.21.1",
+    "internet-available": "^1.0.0",
+    "node-cron": "^3.0.3",
+    "sqlite3": "^5.1.7"
+  }
+}

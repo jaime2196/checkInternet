@@ -1,0 +1,9 @@
+node_modules/
+dist/
+checkInternet-angular/
+.env
+.gitignore
+Dockerfile
+nodemon.json
+package-lock.json
+README.md
