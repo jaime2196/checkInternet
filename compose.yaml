@@ -1,0 +1,11 @@
+services:
+  checker:
+    image: jaime2196/checkinternet
+    volumes:
+      - db:/usr/src/app/db
+    ports:
+      - 3000:3000
+    environment:
+      TZ: Europe/Madrid
+volumes:
+  db:
