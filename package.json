@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "cd checkInternet-angular && ng build && cd .. && rm ./html/* && cp ./checkInternet-angular/dist/check-internet-angular/browser/* ./html/ && docker buildx build -t jaime2196/checkinternet --platform linux/amd64,linux/arm/v7 --push ."
+    "build": "cd checkInternet-angular && npm run build && cd .. && rm ./html/* && cp ./checkInternet-angular/dist/check-internet-angular/browser/* ./html/ && docker buildx build -t jaime2196/checkinternet --platform linux/amd64,linux/arm/v7 --push ."
   },
   "author": "",
   "license": "ISC",
