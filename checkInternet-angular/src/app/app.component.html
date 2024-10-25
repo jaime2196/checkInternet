@@ -1,5 +1,5 @@
 <div class="center">
-  <h1 class="cen">Internet</h1>
+  <h1 class="cen">Conexión a Internet</h1>
   <h3 class="cen">{{ fechaHoy }}</h3>
   <input class="cenint" type="date" id="fecha" name="fecha" (change)="nuevaFecha($event)">
   <br><br>
@@ -12,5 +12,19 @@
         <td>{{ min }}</td>
         <td *ngFor="let item of [].constructor(24); let i = index">{{search(i,min)}}</td>
     </tr>
-  </table>  
+  </table>
+  <br>
+  <h1 class="cen">Velocidad media hoy</h1>
+  <table border="2" class="centab">
+    <tr>
+      <th>Número de controles hoy</th>
+      <th>Velocidad de bajada</th>
+      <th>Velocidad de subida</th>
+    </tr>
+    <tr>
+      <td>{{velocidadAvg.numeroElementos}}</td>
+      <td>{{velocidadAvg.bajada}}</td>
+      <td>{{velocidadAvg.subida}}</td>
+    </tr>
+  </table>
 </div>

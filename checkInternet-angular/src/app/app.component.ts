@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { InternetService } from './services/internet.service';
 import { InternetData } from './model/internet-data';
+import { VelocidadAvg } from './model/velocidad-avg';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,11 @@ import { InternetData } from './model/internet-data';
 })
 export class AppComponent  implements OnInit {
   internetData : InternetData[] = [];
+  velocidadAvg: VelocidadAvg = {
+    bajada: 0,
+    subida: 0,
+    numeroElementos: 0
+  }
   fechaHoy: string = '';
   minutos:number[]=[];
 
@@ -20,6 +26,7 @@ export class AppComponent  implements OnInit {
   ngOnInit(): void {
     this.initMinutos();
     this.initFechaHoy();
+    this.initVelocidadHoy();
   }
 
   initFechaHoy(){
@@ -39,6 +46,23 @@ export class AppComponent  implements OnInit {
     this.internetService.getInternetDate(dayOfMonth, month, year).subscribe(res=>{
       console.log(res);
       this.internetData = res;
+    });
+  }
+
+  initVelocidadHoy(){
+    const today = new Date();
+    const dayOfMonth = today.getDate();
+    const month = today.getMonth()+1;
+    const year = today.getFullYear();
+    this.internetService.getVelocidadDate(dayOfMonth, month, year).subscribe(res=>{
+        console.log(res);
+        this.velocidadAvg = this.internetService.calcAvg(res);
+    });
+  }
+
+  initVelocidad(dayOfMonth: number, month:number, year:number){
+    this.internetService.getVelocidadDate(dayOfMonth, month, year).subscribe(res=>{
+      this.velocidadAvg = this.internetService.calcAvg(res);
     });
   }
   
@@ -67,8 +91,10 @@ export class AppComponent  implements OnInit {
       let ar=fechaStr.split('-');
       console.log(ar);
       this.initFecha(ar[2],ar[1],ar[0]);
+      this.initVelocidad(ar[2],ar[1],ar[0]);
     }else{
       this.initFechaHoy();
+      this.initVelocidadHoy();
     }
   }
 
